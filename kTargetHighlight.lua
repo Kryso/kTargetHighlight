@@ -6,19 +6,20 @@ local TargetHighlightFrame = kWidgets.TargetHighlightFrame;
 -- main
 
 for index = 1, 5 do
-	local frame = _G[ "oUF_Arena" .. tostring( index ) ]
+	local frame = _G[ "ElvUF_Arena" .. tostring( index ) ]
 	if ( not frame ) then break; end
 	
 	TargetHighlightFrame( frame );
 end
 
 for index = 1, 5 do
-	local frame = _G[ "oUF_PartyPet" .. tostring( index ) ]
+	local frame = _G[ "ElvUF_PartyGroup1UnitButton" .. tostring( index ) ]
 	if ( not frame ) then break; end
 
 	TargetHighlightFrame( frame );
 end
 
+--[[
 do
 	local event;
 	local partyFramesCreated = 1;
@@ -39,3 +40,4 @@ do
 	end
 	event = kEvents.RegisterEvent( "PARTY_MEMBERS_CHANGED", OnPartyMembersChanged );
 end
+]]

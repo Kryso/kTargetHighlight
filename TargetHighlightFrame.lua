@@ -17,7 +17,7 @@ end
 
 -- public
 local Update = function( self )
-	local unit = self.parent:GetAttribute( "unit" );
+	local unit = self.parent.unit or self.parent:GetAttribute( "unit" );
 
 	if ( unit and strlen( unit ) > 0 and UnitExists( unit ) ) then
 		local unitGuid = UnitGUID( unit );
@@ -39,7 +39,7 @@ end
 -- constructor
 local ctor = function( self, baseCtor, parent )
 	baseCtor( self );
-	
+
 	self.parent = parent;
 	
 	self.targetColor = { 1, 1, 1, 1 };
@@ -64,5 +64,5 @@ end
 
 -- main
 kWidgets.TargetHighlightFrame = kCore.CreateClass( ctor, { 
-		Update = Update,
-	}, Frame );
+	Update = Update,
+}, Frame );
